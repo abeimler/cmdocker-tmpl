@@ -2,10 +2,10 @@
 
 ### @NOTE: add your dependencies here (for docker)
 
-#apt-get install -y binutils-dev
-#apt-get install -y libboost-all-dev 
+#apt-get install -qq -y --no-install-recommends binutils-dev
+#apt-get install -qq -y --no-install-recommends libboost-all-dev 
 
-apt-get install -y \
+apt-get -qq -y --no-install-recommends \
   binutils \
   libgtest-dev \
   libunittest++-dev \
@@ -16,6 +16,6 @@ apt-get install -y \
 
 
 ## for cpp-coveralls
-apt-get install -y python-pip
+apt-get install -qq -y --no-install-recommends python-pip
 
 pip install --user cpp-coveralls
