@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  build-gcc-5:
+    build:
+      context: ./docker/gcc-5
+    container_name: build-gcc-5
+    volumes:
+      - .:/source
+    environment:
+      - BUILD_TYPE=Release
+      - BUILD_PATH=/binary
