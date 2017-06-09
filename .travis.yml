@@ -9,37 +9,35 @@ matrix:
    - compiler: gcc 
      os: linux
      env:
-       - DOCKER_COMPOSE_VERSION=1.8.1
+       - DOCKER_COMPOSE_VERSION=1.13.0
        - CC=gcc
        - CXX=g++
-       - BUILD_ONLY=1
-       - CONTAINER_NAME=build
-   - compiler: gcc
-     os: linux
-     env:
-       - DOCKER_COMPOSE_VERSION=1.8.1
-       - CC=gcc
-       - CXX=g++
-       - CONTAINER_NAME=test
-   - compiler: clang 
-     os: linux
-     env:
-       - DOCKER_COMPOSE_VERSION=1.8.1
-       - CC=clang
-       - CXX=clang++
-       - BUILD_ONLY=1
-       - CONTAINER_NAME=build
-   - compiler: clang
-     os: linux
-     env:
-       - DOCKER_COMPOSE_VERSION=1.8.1
-       - CC=clang
-       - CXX=clang++
-       - CONTAINER_NAME=test
+       - CONTAINER_NAME=build-gcc-5
+  #  - compiler: gcc 
+  #    os: linux
+  #    env:
+  #      - DOCKER_COMPOSE_VERSION=1.13.0
+  #      - CC=gcc
+  #      - CXX=g++
+  #      - CONTAINER_NAME=build-gcc-6
+  #  - compiler: gcc 
+  #    os: linux
+  #    env:
+  #      - DOCKER_COMPOSE_VERSION=1.13.0
+  #      - CC=gcc
+  #      - CXX=g++
+  #      - CONTAINER_NAME=build-gcc-7
+  #  - compiler: clang
+  #    os: linux
+  #    env:
+  #      - DOCKER_COMPOSE_VERSION=1.13.0
+  #      - CC=gcc
+  #      - CXX=g++
+  #      - CONTAINER_NAME=build-clang-3.9
 
 
 
-before_install:
+install:
   # update is required to update the repositories to see the new packages for
   # Docker.
   - sudo apt-get update
@@ -67,15 +65,14 @@ before_install:
   - docker-compose --version
 
 
-install:
-  - docker-compose up --build -d $CONTAINER_NAME
-  - . ./scripts/travis.install.sh
+
 
 before_script:
-  - . ./scripts/travis.before_script.sh
+  - docker-compose build $CONTAINER_NAME
+
 
 script:
-  - . ./scripts/travis.script.sh
+  - docker-compose up --build $CONTAINER_NAME
 
 
 after_script:

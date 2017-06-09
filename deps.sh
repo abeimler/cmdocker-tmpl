@@ -2,6 +2,8 @@
 
 ###
 ## @NOTE: add your git cmake dependencies here (use git subtree, not git submodule)
+## run add (once) first: git subtree add  --prefix lib/doctest https://github.com/onqtam/doctest.git master --squash 
+## then you can use:     git subtree pull --prefix lib/doctest https://github.com/onqtam/doctest.git master --squash 
 ###
 
 # base/util libs, some basic/util libs
