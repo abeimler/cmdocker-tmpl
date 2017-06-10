@@ -241,10 +241,10 @@ services:
       #- CTEST_MEMORYCHECK_COMMAND=valgrind
       #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
 
-  build-mingw-mingw-w64-x86-64:
+  build-mingw-w64-x86-64:
     build:
-      context: ./docker/mingw-mingw-w64-x86-64
-    container_name: build-mingw-mingw-w64-x86-64
+      context: ./docker/mingw-w64-x86-64
+    container_name: build-mingw-w64-x86-64
     volumes:
       - .:/source
       - ./build:/binary

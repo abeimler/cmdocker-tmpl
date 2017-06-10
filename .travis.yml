@@ -11,10 +11,21 @@ env:
   global:
   - DOCKER_COMPOSE_VERSION=1.13.0
   matrix:
+  ## comment out some CONTAINER_NAMEs to disables compiler-buils
+  - CONTAINER_NAME=build-arm-linux-gnueabihf
+  - CONTAINER_NAME=build-clang-3.9
+  - CONTAINER_NAME=build-clang-3.9-clazy
+  - CONTAINER_NAME=build-clang-4.0
+  - CONTAINER_NAME=build-clang-4.0-clazy
+  - CONTAINER_NAME=build-clang-5.0
   - CONTAINER_NAME=build-gcc-5
   - CONTAINER_NAME=build-gcc-6
   - CONTAINER_NAME=build-gcc-7
-  - CONTAINER_NAME=build-clang-3.9
+  - CONTAINER_NAME=build-mingw-w64-i686
+  - CONTAINER_NAME=build-mingw-w64-x86-64
+  - CONTAINER_NAME=build-msvc-9.0
+  - CONTAINER_NAME=build-wine32-gcc
+  - CONTAINER_NAME=build-wine64-gcc
 
 
 install:
