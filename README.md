@@ -18,6 +18,8 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
  * [ ] build with docker (https://github.com/purpleKarrot/build-containers)
  * [ ] use travis-ci with docker (travis-ci cpp is outdated)
  * [ ] use gitlab-ci with docker
+ * [x] run build with cmake
+ * [ ] run CTest (and CDash)
 
 
  ### update/pull libs

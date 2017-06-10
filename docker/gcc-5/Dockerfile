@@ -25,9 +25,9 @@ RUN apt-get -qq update && apt-get install -qq -y \
 RUN pip install --user cpp-coveralls
 
 
-RUN mkdir /binary
-RUN mkdir /source
-RUN mkdir /prefix
+RUN mkdir -p /binary/$BUILD_TYPE
+RUN mkdir -p /source
+RUN mkdir -p /prefix
 
 VOLUME /source
 VOLUME /binary

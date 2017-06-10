@@ -6,8 +6,8 @@ services:
       context: ./docker/gcc-5
     container_name: build-gcc-5
     volumes:
-      - .:/source:ro
-      - ./build:/binary:rw
+      - .:/source
+      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source
