@@ -29,7 +29,7 @@ services:
   build-clang-3.9:
     build:
       context: .
-      dockerfile: ./docker/clang-3.9
+      dockerfile: ./docker/clang-3.9/Dockerfile
     container_name: build-clang-3.9
     volumes:
       - .:/source
@@ -54,7 +54,7 @@ services:
   build-clang-3.9-clazy:
     build:
       context: .
-      dockerfile: ./docker/clang-3.9-clazy
+      dockerfile: ./docker/clang-3.9-clazy/Dockerfile
     container_name: build-clang-3.9-clazy
     volumes:
       - .:/source
@@ -79,7 +79,7 @@ services:
   build-clang-4.0:
     build:
       context: .
-      dockerfile: ./docker/clang-4.0
+      dockerfile: ./docker/clang-4.0/Dockerfile
     container_name: build-clang-4.0
     volumes:
       - .:/source
@@ -104,7 +104,7 @@ services:
   build-clang-4.0-clazy:
     build:
       context: .
-      dockerfile: ./docker/clang-4.0-clazy
+      dockerfile: ./docker/clang-4.0-clazy/Dockerfile
     container_name: build-clang-4.0-clazy
     volumes:
       - .:/source
@@ -129,7 +129,7 @@ services:
   build-clang-5.0:
     build:
       context: .
-      dockerfile: ./docker/clang-5.0
+      dockerfile: ./docker/clang-5.0/Dockerfile
     container_name: build-clang-5.0
     environment:
       - BUILD_TYPE=Release
