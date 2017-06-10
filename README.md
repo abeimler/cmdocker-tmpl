@@ -16,6 +16,7 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
  * [x] use unit-tests
  * [x] use benchmarking
  * [ ] build with docker (https://github.com/purpleKarrot/build-containers)
+ * [x] use more compilers (and cross-compiling)
  * [ ] use travis-ci with docker (travis-ci cpp is outdated)
  * [ ] use gitlab-ci with docker
  * [x] run build with cmake

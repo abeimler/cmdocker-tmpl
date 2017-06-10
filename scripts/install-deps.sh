@@ -23,3 +23,5 @@ apt-get -qq update \
     python-pip
 
 pip install --user cpp-coveralls
+
+exit 0
