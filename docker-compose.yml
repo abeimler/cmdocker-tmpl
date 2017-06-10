@@ -6,7 +6,21 @@ services:
       context: ./docker/gcc-5
     container_name: build-gcc-5
     volumes:
-      - .:/source
+      - .:/source:ro
+      - ./build:/binary:rw
     environment:
       - BUILD_TYPE=Release
-      - BUILD_PATH=/binary
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer

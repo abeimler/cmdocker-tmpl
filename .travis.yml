@@ -72,8 +72,8 @@ before_script:
 
 
 script:
-  - docker-compose up --build $CONTAINER_NAME
+  - docker-compose up $CONTAINER_NAME
 
 
 after_script:
-  - docker-compose down
+  - docker-compose down $CONTAINER_NAME
