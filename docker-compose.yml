@@ -1,10 +1,322 @@
 version: '3'
 
 services:
+  build-arm-linux-gnueabihf:
+    build:
+      context: ./docker/arm-linux-gnueabihf
+    container_name: build-arm-linux-gnueabihf
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-clang-3.9:
+    build:
+      context: ./docker/clang-3.9
+    container_name: build-clang-3.9
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-clang-3.9-clazy:
+    build:
+      context: ./docker/clang-3.9-clazy
+    container_name: build-clang-3.9-clazy
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-clang-4.0:
+    build:
+      context: ./docker/clang-4.0
+    container_name: build-clang-4.0
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-clang-4.0-clazy:
+    build:
+      context: ./docker/clang-4.0-clazy
+    container_name: build-clang-4.0-clazy
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-clang-5.0:
+    build:
+      context: ./docker/clang-5.0
+    container_name: build-clang-5.0
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
   build-gcc-5:
     build:
       context: ./docker/gcc-5
     container_name: build-gcc-5
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-gcc-6:
+    build:
+      context: ./docker/gcc-6
+    container_name: build-gcc-6
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-gcc-7:
+    build:
+      context: ./docker/gcc-7
+    container_name: build-gcc-7
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-mingw-w64-i686:
+    build:
+      context: ./docker/mingw-w64-i686
+    container_name: build-mingw-w64-i686
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-mingw-mingw-w64-x86-64:
+    build:
+      context: ./docker/mingw-mingw-w64-x86-64
+    container_name: build-mingw-mingw-w64-x86-64
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-msvc-9.0:
+    build:
+      context: ./docker/msvc-9.0
+    container_name: build-msvc-9.0
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-wine32-gcc:
+    build:
+      context: ./docker/wine32-gcc
+    container_name: build-wine32-gcc
+    volumes:
+      - .:/source
+      - ./build:/binary
+    environment:
+      - BUILD_TYPE=Release
+      - SOURCE_PATH=/source
+      - BUILD_PATH=/binary/Release
+      - COVERAGE=0
+      - BUILD_ONLY=0
+      - CMAKE_OPTIONS=""
+
+      # CTest Options
+      - USE_CTEST=0
+      - CLEAN_BUILD=0
+      - SUBMIT_RESULTS=0
+      - RUN_TESTS=1
+      #- CTEST_COVERAGE_COMMAND=gcov
+      #- CTEST_MEMORYCHECK_COMMAND=valgrind
+      #- CTEST_MEMORYCHECK_TYPE=ThreadSanitizer
+
+  build-wine64-gcc:
+    build:
+      context: ./docker/wine64-gcc
+    container_name: build-wine64-gcc
     volumes:
       - .:/source
       - ./build:/binary

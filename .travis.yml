@@ -2,6 +2,7 @@
 # Use Ubuntu 'trusty' distribution
 sudo: required
 dist: trusty
+language: cpp
 
 services:
   - docker
