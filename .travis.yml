@@ -63,7 +63,7 @@ before_script:
 
 
 script:
-  - docker-compose up --exit-code-from $CONTAINER_NAME $CONTAINER_NAME
+  - docker-compose up $CONTAINER_NAME
 
 
 after_script:

@@ -3,7 +3,8 @@ version: '3'
 services:
   build-arm-linux-gnueabihf:
     build:
-      context: ./docker/arm-linux-gnueabihf
+      context: .
+      dockerfile: ./docker/arm-linux-gnueabihf/Dockerfile
     container_name: build-arm-linux-gnueabihf
     volumes:
       - .:/source
@@ -27,7 +28,8 @@ services:
 
   build-clang-3.9:
     build:
-      context: ./docker/clang-3.9
+      context: .
+      dockerfile: ./docker/clang-3.9
     container_name: build-clang-3.9
     volumes:
       - .:/source
@@ -51,7 +53,8 @@ services:
 
   build-clang-3.9-clazy:
     build:
-      context: ./docker/clang-3.9-clazy
+      context: .
+      dockerfile: ./docker/clang-3.9-clazy
     container_name: build-clang-3.9-clazy
     volumes:
       - .:/source
@@ -75,7 +78,8 @@ services:
 
   build-clang-4.0:
     build:
-      context: ./docker/clang-4.0
+      context: .
+      dockerfile: ./docker/clang-4.0
     container_name: build-clang-4.0
     volumes:
       - .:/source
@@ -99,7 +103,8 @@ services:
 
   build-clang-4.0-clazy:
     build:
-      context: ./docker/clang-4.0-clazy
+      context: .
+      dockerfile: ./docker/clang-4.0-clazy
     container_name: build-clang-4.0-clazy
     volumes:
       - .:/source
@@ -123,11 +128,9 @@ services:
 
   build-clang-5.0:
     build:
-      context: ./docker/clang-5.0
+      context: .
+      dockerfile: ./docker/clang-5.0
     container_name: build-clang-5.0
-    volumes:
-      - .:/source
-      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source
@@ -147,11 +150,9 @@ services:
 
   build-gcc-5:
     build:
-      context: ./docker/gcc-5
+      context: .
+      dockerfile: ./docker/gcc-5/Dockerfile
     container_name: build-gcc-5
-    volumes:
-      - .:/source
-      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source
@@ -171,11 +172,9 @@ services:
 
   build-gcc-6:
     build:
-      context: ./docker/gcc-6
+      context: .
+      dockerfile: ./docker/gcc-6/Dockerfile
     container_name: build-gcc-6
-    volumes:
-      - .:/source
-      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source
@@ -195,11 +194,9 @@ services:
 
   build-gcc-7:
     build:
-      context: ./docker/gcc-7
+      context: .
+      dockerfile: ./docker/gcc-7/Dockerfile
     container_name: build-gcc-7
-    volumes:
-      - .:/source
-      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source
@@ -219,11 +216,9 @@ services:
 
   build-mingw-w64-i686:
     build:
-      context: ./docker/mingw-w64-i686
+      context: .
+      dockerfile: ./docker/mingw-w64-i686/Dockerfile
     container_name: build-mingw-w64-i686
-    volumes:
-      - .:/source
-      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source
@@ -243,11 +238,9 @@ services:
 
   build-mingw-w64-x86-64:
     build:
-      context: ./docker/mingw-w64-x86-64
+      context: .
+      dockerfile: ./docker/mingw-w64-x86-64/Dockerfile
     container_name: build-mingw-w64-x86-64
-    volumes:
-      - .:/source
-      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source
@@ -267,11 +260,9 @@ services:
 
   build-msvc-9.0:
     build:
-      context: ./docker/msvc-9.0
+      context: .
+      dockerfile: ./docker/msvc-9.0/Dockerfile
     container_name: build-msvc-9.0
-    volumes:
-      - .:/source
-      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source
@@ -291,11 +282,9 @@ services:
 
   build-wine32-gcc:
     build:
-      context: ./docker/wine32-gcc
+      context: .
+      dockerfile: ./docker/wine32-gcc/Dockerfile
     container_name: build-wine32-gcc
-    volumes:
-      - .:/source
-      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source
@@ -315,11 +304,9 @@ services:
 
   build-wine64-gcc:
     build:
-      context: ./docker/wine64-gcc
+      context: .
+      dockerfile: ./docker/wine64-gcc/Dockerfile
     container_name: build-wine64-gcc
-    volumes:
-      - .:/source
-      - ./build:/binary
     environment:
       - BUILD_TYPE=Release
       - SOURCE_PATH=/source

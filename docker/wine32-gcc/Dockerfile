@@ -21,20 +21,28 @@ RUN apt-get -qq update && apt-get install -qq -y \
 RUN pip install --user cpp-coveralls
 
 
+
 ENV BUILD_TYPE Release
 ENV BUILD_PATH /binary/build
 ENV SOURCE_PATH /source
 ENV PREFIX_PATH /prefix
+ENV CMAKE_OPTIONS ''
 
 RUN mkdir -p $BUILD_PATH
 RUN mkdir -p $SOURCE_PATH
 RUN mkdir -p $PREFIX_PATH
 
-VOLUME $BUILD_PATH
-VOLUME $SOURCE_PATH
-VOLUME $PREFIX_PATH
+COPY . $SOURCE_PATH
 
 WORKDIR $SOURCE_PATH
 
-COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+
+## extra CMAKE_OPTIONS
+RUN if [ -f "/toolchain.cmake" ]; then CMAKE_OPTIONS="$CMAKE_OPTIONS -DCMAKE_TOOLCHAIN_FILE:FILEPATH=/toolchain.cmake"; fi
+RUN CMAKE_OPTIONS="$CMAKE_OPTIONS -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX_PATH"
+
+RUN ./scripts/prebuild.sh
+RUN ./scripts/build.sh
+RUN ./scripts/run-tests.sh
+
+ENTRYPOINT ["/bin/bash"]
