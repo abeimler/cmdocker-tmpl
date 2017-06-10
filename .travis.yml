@@ -4,30 +4,16 @@ sudo: required
 dist: trusty
 language: cpp
 
-matrix:
-  include:
-   - compiler: gcc 
-     os: linux
-     env:
-       - DOCKER_COMPOSE_VERSION=1.13.0
-       - CONTAINER_NAME=build-gcc-5
-    - compiler: gcc 
-      os: linux
-      env:
-        - DOCKER_COMPOSE_VERSION=1.13.0
-        - CONTAINER_NAME=build-gcc-6
-    - compiler: gcc 
-      os: linux
-      env:
-        - DOCKER_COMPOSE_VERSION=1.13.0
-        - CONTAINER_NAME=build-gcc-7
-    - compiler: clang
-      os: linux
-      env:
-        - DOCKER_COMPOSE_VERSION=1.13.0
-        - CONTAINER_NAME=build-clang-3.9
+services:
+  - docker
 
-
+env:
+  - DOCKER_COMPOSE_VERSION=1.13.0
+  - CONTAINER_NAME=build-gcc-5
+  - CONTAINER_NAME=build-gcc-6
+  - CONTAINER_NAME=build-gcc-7
+  - CONTAINER_NAME=build-clang-3.9
+  
 
 install:
   # update is required to update the repositories to see the new packages for
