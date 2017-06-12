@@ -1,8 +1,9 @@
 #!/bin/bash
 
+## alt
 cd $BUILD_PATH
-if [ "${USE_CTEST}" != "1" ] && [ "${BUILD_ONLY}" != "1" ]; then cmake --build $BUILD_PATH --target test; fi
-if [ "${USE_CTEST}" != "1" ] && [ "${COVERAGE}" = "1" ]; then bash <(curl -s https://raw.githubusercontent.com/codecov/codecov-bash/master/codecov) -x $GCOV -a "-s `pwd`" ; fi
+if [ "${RUN_TESTS}" = "1" ]; then ctest -j2 -C $BUILD_CONFIG -T test --output-on-failure; fi
 
-cd $SOURCE_PATH
-if [ "${USE_CTEST}" = "1" ] && [ "${BUILD_ONLY}" != "1" ]; then ctest -S build.cmake; fi
+### @NOTE: ctest
+#cd $SOURCE_PATH
+#ctest -S build.cmake

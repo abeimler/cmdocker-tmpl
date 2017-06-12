@@ -1,27 +1,26 @@
 #!/bin/bash
 
-### @NOTE: dependencies install script for local use
+### @NOTE: (lib) dependencies install script
 
-#apt-get install -qq -y --no-install-recommends binutils-dev
-#apt-get install -qq -y --no-install-recommends libboost-all-dev 
+#apt-get -qq update && apt-get install -qq -y \
+#    binutils-dev \
+#    libboost-all-dev \
+# && rm -rf /var/lib/apt/lists/*
 
 
-apt-get -qq update \
-	&& apt-get install -qq -y --no-install-recommends \
+apt-get -qq update && apt-get install -qq -y \
     libgtest-dev \
     libunittest++-dev \
     libicu-dev \
     libboost-serialization-dev \
     libssl-dev libboost-system-dev libboost-iostreams-dev \
-    libboost-test-dev
-
+    libboost-test-dev \
+ && rm -rf /var/lib/apt/lists/*
 
 ## for cpp-coveralls
-apt-get -qq update \
-	&& apt-get install -qq -y --no-install-recommends \
-    python \
-    python-pip
+apt-get -qq update && apt-get install -qq -y \
+	python \
+    python-pip \
+ && rm -rf /var/lib/apt/lists/*
 
 pip install --user cpp-coveralls
-
-exit 0
