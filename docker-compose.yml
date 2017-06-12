@@ -6,6 +6,12 @@ services:
       context: .
       dockerfile: ./docker/arm-linux-gnueabihf/Dockerfile
     container_name: build-arm-linux-gnueabihf
+    environment:
+      - BUILD_NAME=arm-linux-gnueabihf
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source
+      - ./build:/binary
 
   build-clang-3.9:
     build:
