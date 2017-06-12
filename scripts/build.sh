@@ -7,3 +7,5 @@ if [ "$CLEAN_BUILD" = "1" ]; then cmake --build $BUILD_PATH --target clean --con
 
 ### @NOTE: cmake build
 cmake --build $BUILD_PATH --target all --config $BUILD_CONFIG -- -j2
+
+exit $?

@@ -2,7 +2,7 @@ FROM purplekarrot/arm-linux-gnueabihf
 
 
 
-ENV BUILD_NAME 'gcc-5'
+ENV BUILD_NAME 'arm-linux-gnueabihf'
 ENV BUILD_MODEL 'Experimental'
 ENV CHANGE_ID "$(git rev-parse --verify HEAD)"
 ENV CTEST_COVERAGE_COMMAND ''

@@ -2,7 +2,7 @@ FROM purplekarrot/clang-4.0
 
 
 
-ENV BUILD_NAME 'gcc-5'
+ENV BUILD_NAME 'clang-4.0'
 ENV BUILD_MODEL 'Experimental'
 ENV CHANGE_ID "$(git rev-parse --verify HEAD)"
 ENV CTEST_COVERAGE_COMMAND ''
