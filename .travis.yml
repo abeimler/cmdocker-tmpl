@@ -69,10 +69,10 @@ before_script:
 
 
 script:
-  - docker-compose up $CONTAINER_NAME
+  - docker-compose up -e RUN_TESTS=1 $CONTAINER_NAME
   # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
   - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
 
 
 after_script:
-  - docker-compose down
+  - docker-compose down $CONTAINER_NAME

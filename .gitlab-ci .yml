@@ -1,2 +1,130 @@
+image: docker/compose
+services:
+  - docker
 
-# @TODO: use docker registry here and then build with it
+stages:
+  - build
+  - test
+
+
+build:arm-linux-gnueabihf:
+  stage: build
+  cache:
+    key: "$CI_COMMIT_REF_NAME:arm-linux-gnueabihf"
+    untracked: true
+    paths:
+      - build
+  variables:
+    - CONTAINER_NAME=build-arm-linux-gnueabihf
+  befor_script:
+    - docker-compose build $CONTAINER_NAME
+  script:
+    - docker-compose up -e RUN_TESTS=0 $CONTAINER_NAME
+    # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
+    - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
+  after_script:
+    - docker-compose down $CONTAINER_NAME
+
+test:arm-linux-gnueabihf:
+  stage: test
+  cache:
+    key: "$CI_COMMIT_REF_NAME:arm-linux-gnueabihf"
+    untracked: true
+    paths:
+      - build
+  dependencies:
+    - build:arm-linux-gnueabihf
+  variables:
+    - CONTAINER_NAME=build-arm-linux-gnueabihf
+  befor_script:
+    - docker-compose build $CONTAINER_NAME
+  script:
+    - docker-compose up -e RUN_TESTS=1 $CONTAINER_NAME
+    # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
+    - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
+  after_script:
+    - docker-compose down $CONTAINER_NAME
+
+
+
+
+build:clang-3.9:
+  stage: build
+  cache:
+    key: "$CI_COMMIT_REF_NAME:clang-3.9"
+    untracked: true
+    paths:
+      - build
+  variables:
+    - CONTAINER_NAME=build-clang-3.9
+  befor_script:
+    - docker-compose build $CONTAINER_NAME
+  script:
+    - docker-compose up -e RUN_TESTS=0 $CONTAINER_NAME
+    # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
+    - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
+  after_script:
+    - docker-compose down $CONTAINER_NAME
+
+test:clang-3.9:
+  stage: test
+  cache:
+    key: "$CI_COMMIT_REF_NAME:clang-3.9"
+    untracked: true
+    paths:
+      - build
+  dependencies:
+    - build:clang-3.9
+  variables:
+    - CONTAINER_NAME=build-clang-3.9
+  befor_script:
+    - docker-compose build $CONTAINER_NAME
+  script:
+    - docker-compose up -e RUN_TESTS=1 $CONTAINER_NAME
+    # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
+    - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
+  after_script:
+    - docker-compose down $CONTAINER_NAME
+
+
+
+
+build:gcc-5:
+  stage: build
+  cache:
+    key: "$CI_COMMIT_REF_NAME:gcc-5"
+    untracked: true
+    paths:
+      - build
+  variables:
+    - CONTAINER_NAME=build-gcc-5
+  befor_script:
+    - docker-compose build $CONTAINER_NAME
+  script:
+    - docker-compose up -e RUN_TESTS=0 $CONTAINER_NAME
+    # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
+    - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
+  after_script:
+    - docker-compose down $CONTAINER_NAME
+
+test:gcc-5:
+  stage: test
+  cache:
+    key: "$CI_COMMIT_REF_NAME:gcc-5"
+    untracked: true
+    paths:
+      - build
+  dependencies:
+    - build:gcc-5
+  variables:
+    - CONTAINER_NAME=build-gcc-5
+  befor_script:
+    - docker-compose build $CONTAINER_NAME
+  script:
+    - docker-compose up -e RUN_TESTS=1 $CONTAINER_NAME
+    # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
+    - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
+  after_script:
+    - docker-compose down $CONTAINER_NAME
+
+

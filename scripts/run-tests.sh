@@ -2,7 +2,7 @@
 
 ## alt
 cd $BUILD_PATH
-if [ "${RUN_TESTS}" = "1" ]; then ctest -j2 -C $BUILD_CONFIG -T test --output-on-failure; fi
+ctest -j2 -C $BUILD_CONFIG -T test --output-on-failure
 
 ### @NOTE: ctest
 #cd /
