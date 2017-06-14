@@ -49,11 +49,11 @@ build:arm-linux-gnueabihf:
   befor_script:
     - docker-compose build $CONTAINER_NAME
   script:
-    - docker-compose up -e RUN_TESTS=0 $CONTAINER_NAME
+    - docker-compose -e RUN_TESTS=0 up $CONTAINER_NAME
     # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
     - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
   after_script:
-    - docker-compose down $CONTAINER_NAME
+    - docker-compose down
 
 test:arm-linux-gnueabihf:
   stage: test
@@ -69,11 +69,11 @@ test:arm-linux-gnueabihf:
   before_script:
     - docker-compose build $CONTAINER_NAME
   script:
-    - docker-compose up -e RUN_TESTS=1 $CONTAINER_NAME
+    - docker-compose -e RUN_TESTS=1 up $CONTAINER_NAME
     # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
     - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
   after_script:
-    - docker-compose down $CONTAINER_NAME
+    - docker-compose down
 
 
 
@@ -90,11 +90,11 @@ build:clang-3.9:
   before_script:
     - docker-compose build $CONTAINER_NAME
   script:
-    - docker-compose up -e RUN_TESTS=0 $CONTAINER_NAME
+    - docker-compose -e RUN_TESTS=0 up $CONTAINER_NAME
     # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
     - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
   after_script:
-    - docker-compose down $CONTAINER_NAME
+    - docker-compose down
 
 test:clang-3.9:
   stage: test
@@ -110,11 +110,11 @@ test:clang-3.9:
   before_script:
     - docker-compose build $CONTAINER_NAME
   script:
-    - docker-compose up -e RUN_TESTS=1 $CONTAINER_NAME
+    - docker-compose -e RUN_TESTS=1 up $CONTAINER_NAME
     # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
     - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
   after_script:
-    - docker-compose down $CONTAINER_NAME
+    - docker-compose down
 
 
 
@@ -131,11 +131,11 @@ build:gcc-5:
   before_script:
     - docker-compose build $CONTAINER_NAME
   script:
-    - docker-compose up -e RUN_TESTS=0 $CONTAINER_NAME
+    - docker-compose -e RUN_TESTS=0 up $CONTAINER_NAME
     # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
     - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
   after_script:
-    - docker-compose down $CONTAINER_NAME
+    - docker-compose down
 
 test:gcc-5:
   stage: test
@@ -151,10 +151,10 @@ test:gcc-5:
   before_script:
     - docker-compose build $CONTAINER_NAME
   script:
-    - docker-compose up -e RUN_TESTS=1 $CONTAINER_NAME
+    - docker-compose -e RUN_TESTS=1 up $CONTAINER_NAME
     # http://blog.ministryofprogramming.com/docker-compose-and-exit-codes/
     - docker-compose ps -q $CONTAINER_NAME | xargs docker inspect -f '{{ .State.ExitCode }}' | while read code; do if [ "$code" == "1" ]; then exit -1; fi done                             
   after_script:
-    - docker-compose down $CONTAINER_NAME
+    - docker-compose down
 
 
