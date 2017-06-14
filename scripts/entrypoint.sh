@@ -8,5 +8,3 @@ $SOURCE_PATH/scripts/build.sh
 
 echo "run tests ..."
 $SOURCE_PATH/scripts/run-tests.sh
-
-exit $?

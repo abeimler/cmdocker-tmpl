@@ -22,8 +22,8 @@ services:
       - BUILD_NAME=clang-3.9
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-clang-3.9-clazy:
     build:
@@ -34,8 +34,8 @@ services:
       - BUILD_NAME=clang-3.9-clazy
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-clang-4.0:
     build:
@@ -46,8 +46,8 @@ services:
       - BUILD_NAME=clang-4.0
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-clang-4.0-clazy:
     build:
@@ -58,8 +58,8 @@ services:
       - BUILD_NAME=clang-4.0-clazy
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-clang-5.0:
     build:
@@ -70,8 +70,8 @@ services:
       - BUILD_NAME=clang-5.0
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-gcc-5:
     build:
@@ -82,8 +82,8 @@ services:
       - BUILD_NAME=gcc-5
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-gcc-6:
     build:
@@ -94,8 +94,8 @@ services:
       - BUILD_NAME=gcc-6
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-gcc-7:
     build:
@@ -106,8 +106,8 @@ services:
       - BUILD_NAME=gcc-7
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-mingw-w64-i686:
     build:
@@ -118,8 +118,8 @@ services:
       - BUILD_NAME=mingw-w64-i686
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-mingw-w64-x86-64:
     build:
@@ -130,20 +130,8 @@ services:
       - BUILD_NAME=mingw-w64-x86-64
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
-
-  build-msvc-9.0:
-    build:
-      context: .
-      dockerfile: ./docker/msvc-9.0/Dockerfile
-    container_name: build-msvc-9.0
-    environment:
-      - BUILD_NAME=msvc-9.0
-      - BUILD_CONFIG=Release
-    volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-wine32-gcc:
     build:
@@ -154,8 +142,8 @@ services:
       - BUILD_NAME=wine32-gcc
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-wine64-gcc:
     build:
@@ -166,5 +154,17 @@ services:
       - BUILD_NAME=wine64-gcc
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
+
+  # build-msvc-9.0:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/msvc-9.0/Dockerfile
+  #   container_name: build-msvc-9.0
+  #   environment:
+  #     - BUILD_NAME=msvc-9.0
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw

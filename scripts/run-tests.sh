@@ -7,5 +7,3 @@ if [ "${RUN_TESTS}" = "1" ]; then ctest -j2 -C $BUILD_CONFIG -T test --output-on
 ### @NOTE: ctest
 #cd /
 #ctest -S $SOURCE_PATH/build.cmake
-
-exit $?
