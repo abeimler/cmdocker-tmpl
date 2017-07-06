@@ -21,7 +21,7 @@ target_link_libraries (${PROJECT_NAME}_test_main PRIVATE ${CMAKE_THREAD_LIBS_INI
 
 target_include_directories(${PROJECT_NAME}_test_main SYSTEM PUBLIC "${CMAKE_SOURCE_DIR}/lib/doctest/doctest")
 
-target_link_libraries(${PROJECT_NAME}_test_main PUBLIC ${PROJECT_NAME})
+target_link_libraries(${PROJECT_NAME}_test_main PUBLIC ${PROJECT_NAME}_src)
 #target_link_libraries(${PROJECT_NAME}_test_main PUBLIC doctest)
  
 

@@ -1,5 +1,7 @@
 ### TODO avoid file(GLOB)
 file(GLOB_RECURSE src ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/*.cxx ${CMAKE_CURRENT_SOURCE_DIR}/*.cc)
+list(REMOVE_ITEM src ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp) # already use it in app
+
 
 add_library(${PROJECT_NAME}_src STATIC ${src})
 add_library(${PROJECT_NAME}.Src ALIAS ${PROJECT_NAME}_src)
@@ -24,10 +26,9 @@ target_include_directories(${PROJECT_NAME}_src PRIVATE "${CMAKE_CURRENT_SOURCE_D
 ### @NOTE: add 3rd party include here
 
 # app compnents
-target_include_directories(${PROJECT_NAME}_src PUBLIC "${backend_SOURCE_DIR}/include")
 target_link_libraries(${PROJECT_NAME}_src PUBLIC backend)
 
 
-target_include_directories(${PROJECT_NAME}_src PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME}_src PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/include")
 
 unset(src)

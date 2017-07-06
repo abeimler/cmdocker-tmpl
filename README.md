@@ -5,7 +5,8 @@
 [![build status](https://gitlab.com/hircreacc/cmdocker-tmpl/badges/master/build.svg)](https://gitlab.com/hircreacc/cmdocker-tmpl/commits/master)
 
 
-try to make some "best practices"
+try to use some "best practices" in cmake.
+(It's hard to find some)
 
 inspited by [Effective CMake by Daniel Pfeifer](https://github.com/boostcon/cppnow_presentations_2017/blob/master/05-19-2017_friday/effective_cmake__daniel_pfeifer__cppnow_05-19-2017.pdf) [(video)](https://youtu.be/bsXLMQ6WgIk)
 

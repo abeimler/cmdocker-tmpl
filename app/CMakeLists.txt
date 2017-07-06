@@ -27,8 +27,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_src)
 ## Test Application build
 ###
 if(BUILD_TESTING)
-### @TODO make tests for main app
-#  add_subdirectory(test)
+  add_subdirectory(test)
 endif()
 
 
@@ -38,7 +37,7 @@ endif()
 ## Benchmark Application build
 ###
 if(BUILD_BENCHMARKING)
-### @TODO make benchmarks for main app
+### @TODO make benchmarks for main app, if you need
 #  add_subdirectory(benchmark)
 endif()
 

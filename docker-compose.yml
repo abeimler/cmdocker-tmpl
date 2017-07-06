@@ -109,53 +109,53 @@ services:
       - .:/source:ro
       - ./build:/binary:rw
 
-  build-mingw-w64-i686:
-    build:
-      context: .
-      dockerfile: ./docker/mingw-w64-i686/Dockerfile
-    container_name: build-mingw-w64-i686
-    environment:
-      - BUILD_NAME=mingw-w64-i686
-      - BUILD_CONFIG=Release
-    volumes:
-      - .:/source:ro
-      - ./build:/binary:rw
+  # build-mingw-w64-i686:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/mingw-w64-i686/Dockerfile
+  #   container_name: build-mingw-w64-i686
+  #   environment:
+  #     - BUILD_NAME=mingw-w64-i686
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw
 
-  build-mingw-w64-x86-64:
-    build:
-      context: .
-      dockerfile: ./docker/mingw-w64-x86-64/Dockerfile
-    container_name: build-mingw-w64-x86-64
-    environment:
-      - BUILD_NAME=mingw-w64-x86-64
-      - BUILD_CONFIG=Release
-    volumes:
-      - .:/source:ro
-      - ./build:/binary:rw
+  # build-mingw-w64-x86-64:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/mingw-w64-x86-64/Dockerfile
+  #   container_name: build-mingw-w64-x86-64
+  #   environment:
+  #     - BUILD_NAME=mingw-w64-x86-64
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw
 
-  build-wine32-gcc:
-    build:
-      context: .
-      dockerfile: ./docker/wine32-gcc/Dockerfile
-    container_name: build-wine32-gcc
-    environment:
-      - BUILD_NAME=wine32-gcc
-      - BUILD_CONFIG=Release
-    volumes:
-      - .:/source:ro
-      - ./build:/binary:rw
+  # build-wine32-gcc:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/wine32-gcc/Dockerfile
+  #   container_name: build-wine32-gcc
+  #   environment:
+  #     - BUILD_NAME=wine32-gcc
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw
 
-  build-wine64-gcc:
-    build:
-      context: .
-      dockerfile: ./docker/wine64-gcc/Dockerfile
-    container_name: build-wine64-gcc
-    environment:
-      - BUILD_NAME=wine64-gcc
-      - BUILD_CONFIG=Release
-    volumes:
-      - .:/source:ro
-      - ./build:/binary:rw
+  # build-wine64-gcc:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/wine64-gcc/Dockerfile
+  #   container_name: build-wine64-gcc
+  #   environment:
+  #     - BUILD_NAME=wine64-gcc
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw
 
   # build-msvc-9.0:
   #   build:
