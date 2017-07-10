@@ -8,6 +8,13 @@
 try to use some "best practices" in cmake.
 (It's hard to find some)
 
+ - default compiler settings (no -Wall, -std=c++11, ... no hardcoded compiler options)
+ - use cmake properties and less if-else logic
+ - avoid global variables
+ - split CMakeLists.txt in sub_directories (src, test, benchmark)
+ - split application in static libs (easier to build tests)
+
+
 inspited by [Effective CMake by Daniel Pfeifer](https://github.com/boostcon/cppnow_presentations_2017/blob/master/05-19-2017_friday/effective_cmake__daniel_pfeifer__cppnow_05-19-2017.pdf) [(video)](https://youtu.be/bsXLMQ6WgIk)
 
 thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon/cppnow_presentations_2017)
@@ -18,15 +25,20 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
  * [x] use modern C++14
  * [x] use "modern" cmake
  * [x] sub directories (app components)
- * [x] git subtree (not git submodule) for (git) libs
+ * [x] git subtree (not git submodule) for 3rd-party-libs
  * [x] use unit-tests
  * [x] use benchmarking
  * [x] build with docker (https://github.com/purpleKarrot/build-containers)
  * [x] use more compilers (and cross-compiling)
+        - arm (gnueabihf)
+        - clang
+        - gcc 
+        - mingw
+        - msvc
  * [x] use travis-ci with docker (travis-ci cpp is outdated)
  * [ ] use gitlab-ci with docker
  * [x] run build with cmake
- * [ ] run CTest (and CDash)
+ * [ ] run CTest (and CDash?)
 
 
  ### update/pull libs

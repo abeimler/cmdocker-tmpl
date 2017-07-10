@@ -13,7 +13,7 @@ SCENARIO("calc bar from foo with 40 and 2") {
 
         myapp::Foo foo (a, b);
 
-        WHEN("calc foo") {
+        WHEN("calc bar") {
             auto bar = foo.calc();
 
             THEN("bar is 42") { CHECK(bar == 42); }

@@ -6,7 +6,7 @@
 ##   INCLUDE(CTest)
 
 ### @TODO change project-name
-set(CTEST_PROJECT_NAME "MyApp")
+set(CTEST_PROJECT_NAME "MyApp") # @TODO change project name
 set(CTEST_NIGHTLY_START_TIME "01:00:00 UTC")
 
 #set(CTEST_DROP_METHOD "http")

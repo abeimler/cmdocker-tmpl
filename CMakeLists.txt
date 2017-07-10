@@ -13,11 +13,11 @@ option(BUILD_BENCHMARKING "Build Benchmarks" OFF)
 ###
 if(BUILD_TESTING)
   ## heady-only
-  #add_subdirectory(lib/doctest)
+  add_subdirectory(lib/doctest)
 endif()
 if(BUILD_BENCHMARKING)
   ## heady-only
-  #add_subdirectory(lib/benchpress)
+  add_subdirectory(lib/benchpress)
 endif()
 
 

@@ -10,8 +10,8 @@ services:
       - BUILD_NAME=arm-linux-gnueabihf
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source
-      - ./build:/binary
+      - .:/source:ro
+      - ./build:/binary:rw
 
   build-clang-3.9:
     build:
@@ -82,7 +82,7 @@ services:
       - BUILD_NAME=gcc-5
       - BUILD_CONFIG=Release
     volumes:
-      - .:/source:ro
+      - .:/source:ro 
       - ./build:/binary:rw
 
   build-gcc-6:

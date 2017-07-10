@@ -13,8 +13,8 @@ project(backend VERSION ${ver} LANGUAGES CXX)
 add_subdirectory(lib/entt)
 add_subdirectory(lib/eventpp)
 
-#add_subdirectory(lib/cereal)
-#add_subdirectory(lib/json)
+add_subdirectory(lib/json)
+add_subdirectory(lib/cereal)
 
 
 
