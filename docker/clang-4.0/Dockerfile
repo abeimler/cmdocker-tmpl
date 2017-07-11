@@ -32,3 +32,13 @@ COPY ./scripts $SOURCE_PATH/scripts
 RUN $SOURCE_PATH/scripts/install-deps.sh
 
 ENTRYPOINT $SOURCE_PATH/scripts/entrypoint.sh
+COPY ./scripts $SOURCE_PATH/scripts
+
+RUN $SOURCE_PATH/scripts/install-deps.sh
+
+
+VOLUME $BUILD_PATH
+VOLUME $SOURCE_PATH
+VOLUME $PREFIX_PATH
+
+ENTRYPOINT $SOURCE_PATH/scripts/entrypoint.sh

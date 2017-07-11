@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### @NOTE: (lib) dependencies install script
+### @NOTE: (binary-libs) dependencies install script
 
 #apt-get -qq update && apt-get install -qq -y \
 #    binutils-dev \
@@ -16,6 +16,7 @@ apt-get -qq update && apt-get install -qq -y \
     libssl-dev libboost-system-dev libboost-iostreams-dev \
     libboost-test-dev \
  && rm -rf /var/lib/apt/lists/*
+
 
 ## for cpp-coveralls
 apt-get -qq update && apt-get install -qq -y \
