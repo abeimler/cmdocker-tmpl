@@ -1,5 +1,5 @@
-#ifndef MYAPP_FOO_H_
-#define MYAPP_FOO_H_
+#ifndef FOO_H
+#define FOO_H
 
 namespace myapp {
 
@@ -30,4 +30,4 @@ class Foo {
 
 } // namespace myapp
 
-#endif // MYAPP_FOO_H_
+#endif // FOO_H
