@@ -44,3 +44,10 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
  ### update/pull libs
  
  to update/pull libs from git run `./deps.sh`
+
+
+ ### use clang-tidy (fix and format)
+
+  1. cmake configure: `cmake -B ./build -DBUILD_TESTING:BOOL="0" -DCMAKE_INSTALL_PREFIX:PATH="/usr/local" -DCMAKE_BUILD_TYPE:STRING="Release" -DSKIP_PORTABILITY_TEST:BOOL="1" -DJUST_INSTALL_CEREAL:BOOL="1" -DTHREAD_SAFE:BOOL="1" -DDOCTEST_WITH_TESTS:BOOL="0" -DBuildTests:BOOL="0"`
+  2. cmake build: `cmake --build ./build`
+  3. run clang-tidy: `python2 ./scripts/run-clang-tidy.py -p ./build -format -fix -header-filter=.*.h`
