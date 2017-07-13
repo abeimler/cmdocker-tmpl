@@ -6,7 +6,6 @@
 
 
 try to use some "best practices" in cmake.
-(It's hard to find some)
 
  - default compiler settings (no -Wall, -std=c++11, ... no hardcoded compiler options)
  - use cmake properties and less if-else logic
@@ -22,8 +21,8 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
 
 ## Features
 
- * [x] use modern C++14
- * [x] use "modern" cmake
+ * [x] use modern C++11/14
+ * [x] use "modern" cmake 3.x
  * [x] sub directories (app components)
  * [x] git subtree (not git submodule) for 3rd-party-libs
  * [x] use unit-tests
@@ -36,6 +35,7 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
         - mingw
         - msvc
  * [x] use travis-ci with docker (travis-ci cpp is outdated)
+ * [ ] use AppVeyor for Windows Builds
  * [ ] use gitlab-ci with docker
  * [x] run build with cmake
  * [ ] run CTest (and CDash?)
@@ -49,5 +49,5 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
  ### use clang-tidy (fix and format)
 
   1. cmake configure: `cmake -B ./build -DBUILD_TESTING:BOOL="0" -DCMAKE_INSTALL_PREFIX:PATH="/usr/local" -DCMAKE_BUILD_TYPE:STRING="Release" -DSKIP_PORTABILITY_TEST:BOOL="1" -DJUST_INSTALL_CEREAL:BOOL="1" -DTHREAD_SAFE:BOOL="1" -DDOCTEST_WITH_TESTS:BOOL="0" -DBuildTests:BOOL="0"`
-  2. cmake build: `cmake --build ./build`
+  2. ~~cmake build: `cmake --build ./build`~~
   3. run clang-tidy: `python2 ./scripts/run-clang-tidy.py -p ./build -format -fix -header-filter=.*.h`

@@ -5,6 +5,22 @@ project(MyApp VERSION ${ver} LANGUAGES CXX) # @TODO change project-name
 
 
 ###
+## 3rd libs
+## @NOTE: add_subdirectory/libs here 
+###
+
+##
+# add boost
+##
+
+set(Boost_USE_STATIC_LIBS    ON)
+set(Boost_USE_MULTITHREADED  ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+find_package(Boost 1.60.0 COMPONENTS date_time serialization filesystem system)
+
+
+
+###
 ## Application Build
 ###
 add_subdirectory(src)

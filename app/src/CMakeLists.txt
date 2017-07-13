@@ -24,6 +24,11 @@ target_include_directories(${PROJECT_NAME}_src PRIVATE "${CMAKE_CURRENT_SOURCE_D
 # use SYSTEM to get rid of 3rd party libs warnings
 ##target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/lib/...")
 ### @NOTE: add 3rd party include here
+if(Boost_FOUND) ## add boost libs
+    target_include_directories(${PROJECT_NAME}_src SYSTEM PUBLIC ${Boost_INCLUDE_DIRS})
+    target_link_libraries(${PROJECT_NAME}_src PUBLIC ${Boost_LIBRARIES})
+endif()
+
 
 # app compnents
 target_link_libraries(${PROJECT_NAME}_src PUBLIC backend)

@@ -3,7 +3,7 @@
 ### @NOTE: (binary-libs) dependencies install script
 
 #apt-get -qq update && apt-get install -qq -y \
-#    binutils-dev \
+#    binutils \
 #    libboost-all-dev \
 # && rm -rf /var/lib/apt/lists/*
 
@@ -12,8 +12,10 @@ apt-get -qq update && apt-get install -qq -y \
     libgtest-dev \
     libunittest++-dev \
     libicu-dev \
+    libssl-dev \
     libboost-serialization-dev \
-    libssl-dev libboost-system-dev libboost-iostreams-dev \
+    libboost-system-dev libboost-date-time-dev \
+    libboost-iostreams-dev \
     libboost-test-dev \
  && rm -rf /var/lib/apt/lists/*
 
