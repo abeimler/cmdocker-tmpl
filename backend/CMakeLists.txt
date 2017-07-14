@@ -10,11 +10,11 @@ project(backend VERSION ${ver} LANGUAGES CXX)
 ###
 
 ## header-only @TODO did header-only libs need to add_subdirectory, EXCLUDE_FROM_ALL for 3rd-party ?
-add_subdirectory(lib/entt EXCLUDE_FROM_ALL)
-add_subdirectory(lib/eventpp EXCLUDE_FROM_ALL)
+add_subdirectory(libs/entt EXCLUDE_FROM_ALL)
+add_subdirectory(libs/eventpp EXCLUDE_FROM_ALL)
 
-add_subdirectory(lib/json EXCLUDE_FROM_ALL)
-add_subdirectory(lib/cereal EXCLUDE_FROM_ALL)
+add_subdirectory(libs/json EXCLUDE_FROM_ALL)
+add_subdirectory(libs/cereal EXCLUDE_FROM_ALL)
 
 
 
