@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd $SOURCE_PATH
 
 ### cmake clean
 if [ "$CLEAN_BUILD" = "1" ]; then cmake --build $BUILD_PATH --target clean --config $BUILD_CONFIG; fi

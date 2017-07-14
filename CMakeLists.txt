@@ -13,11 +13,11 @@ option(BUILD_BENCHMARKING "Build Benchmarks" OFF)
 ###
 if(BUILD_TESTING)
   ## heady-only
-  add_subdirectory(lib/doctest)
+  add_subdirectory(lib/doctest EXCLUDE_FROM_ALL)
 endif()
 if(BUILD_BENCHMARKING)
   ## heady-only
-  add_subdirectory(lib/benchpress)
+  add_subdirectory(lib/benchpress EXCLUDE_FROM_ALL)
 endif()
 
 
@@ -25,7 +25,7 @@ endif()
 
 ###
 ## sub dirs
-## @NOTE: add_subdirectory here (app components)
+## @NOTE: add_subdirectories here (app components)
 ###
 add_subdirectory(backend)
 add_subdirectory(app)

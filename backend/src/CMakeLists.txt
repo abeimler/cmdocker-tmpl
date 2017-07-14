@@ -11,8 +11,8 @@ target_compile_features(${PROJECT_NAME} PUBLIC cxx_constexpr
                                                 cxx_auto_type 
                                                 cxx_range_for 
                                                 cxx_decltype_auto 
-                                                cxx_nullptr)
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_lambdas)
+                                                cxx_nullptr
+                                                cxx_lambdas)
 
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
 

@@ -9,12 +9,12 @@ project(backend VERSION ${ver} LANGUAGES CXX)
 ## @NOTE: add_subdirectory libs here 
 ###
 
-## header-only @TODO did header-only libs need to add_subdirectory ?
-add_subdirectory(lib/entt)
-add_subdirectory(lib/eventpp)
+## header-only @TODO did header-only libs need to add_subdirectory, EXCLUDE_FROM_ALL for 3rd-party ?
+add_subdirectory(lib/entt EXCLUDE_FROM_ALL)
+add_subdirectory(lib/eventpp EXCLUDE_FROM_ALL)
 
-add_subdirectory(lib/json)
-add_subdirectory(lib/cereal)
+add_subdirectory(lib/json EXCLUDE_FROM_ALL)
+add_subdirectory(lib/cereal EXCLUDE_FROM_ALL)
 
 
 

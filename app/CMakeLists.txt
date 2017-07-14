@@ -12,12 +12,16 @@ project(MyApp VERSION ${ver} LANGUAGES CXX) # @TODO change project-name
 ##
 # add boost
 ##
-
 set(Boost_USE_STATIC_LIBS    ON)
 set(Boost_USE_MULTITHREADED  ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 find_package(Boost 1.60.0 COMPONENTS date_time serialization filesystem system)
 
+##
+# pthread
+##
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads)
 
 
 ###

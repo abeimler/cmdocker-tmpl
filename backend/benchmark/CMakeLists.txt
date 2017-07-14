@@ -11,14 +11,14 @@ target_compile_features(${PROJECT_NAME}_benchmark PUBLIC cxx_constexpr
                                                 cxx_auto_type 
                                                 cxx_range_for 
                                                 cxx_decltype_auto 
-                                                cxx_nullptr)
-target_compile_features(${PROJECT_NAME}_benchmark PRIVATE cxx_lambdas cxx_raw_string_literals cxx_user_literals)
+                                                cxx_nullptr
+                                                cxx_lambdas cxx_raw_string_literals cxx_user_literals)
 
 
 target_include_directories(${PROJECT_NAME}_benchmark PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_compile_options(${PROJECT_NAME}_benchmark PRIVATE -fexceptions)
-target_link_libraries (${PROJECT_NAME}_benchmark PRIVATE ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries (${PROJECT_NAME}_benchmark PRIVATE Threads::Threads)
 
 
 target_include_directories(${PROJECT_NAME}_benchmark SYSTEM PUBLIC "${CMAKE_SOURCE_DIR}/lib/benchpress/src")
