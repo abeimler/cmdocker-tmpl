@@ -13,7 +13,7 @@ try to use some "best practices" in cmake.
  - keep it simple, void functions/macros. use what cmake gives you
  - split CMakeLists.txt in sub_directories (src, test, benchmark)
  - split application in static libs (easier to build tests)
- - read `project(... VERSION)` from `VERSION`-file (or set it manualy)
+ - set `project(... VERSION)` from `VERSION`-file (or set it manualy)
 
 
 inspited by [Effective CMake by Daniel Pfeifer](https://github.com/boostcon/cppnow_presentations_2017/blob/master/05-19-2017_friday/effective_cmake__daniel_pfeifer__cppnow_05-19-2017.pdf) [(video)](https://youtu.be/bsXLMQ6WgIk)
@@ -30,12 +30,12 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
  * [x] use unit-tests
  * [x] use benchmarking
  * [x] build with docker (https://github.com/purpleKarrot/build-containers)
- * [x] use more compilers (and cross-compiling)
-        - arm (gnueabihf)
-        - clang
-        - gcc 
-        - mingw
-        - msvc
+    * [x] use more compilers (and cross-compiling)
+      - arm (gnueabihf)
+      - clang
+      - gcc 
+      - ~~mingw~~ (untested)
+      - ~~msvc~~ (untested)
  * [x] use travis-ci with docker (travis-ci cpp is outdated)
  * [ ] use AppVeyor for Windows Builds
  * [ ] use gitlab-ci with docker
@@ -59,6 +59,7 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
     - cxx_lambdas
 
 
+
 ## Misc
 
 ### update/pull libs
@@ -66,16 +67,13 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
  to update/pull libs from git run `./deps.sh`
 
 
+
 ### quick local build
 
  1. `mkdir -p ./build`
- 2. ```bash
-      cmake -DCMAKE_BUILD_TYPE:STRING=Release \
-            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
-            -DDOCTEST_WITH_TESTS:BOOL="0" -DSKIP_PORTABILITY_TEST:BOOL="1" -DTHREAD_SAFE:BOOL="1" -DJUST_INSTALL_CEREAL:BOOL="1" \
-            .
-    ```
+ 2. `cmake -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DDOCTEST_WITH_TESTS:BOOL="0" -DSKIP_PORTABILITY_TEST:BOOL="1" -DTHREAD_SAFE:BOOL="1" -DJUST_INSTALL_CEREAL:BOOL="1" .`
   3. `cmake --build ./build --target all --config Release -- -j2`
+
 
 
 ### use clang-tidy (fix and format)
