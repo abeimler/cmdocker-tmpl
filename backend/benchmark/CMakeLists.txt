@@ -21,9 +21,10 @@ target_compile_options(${PROJECT_NAME}_benchmark PRIVATE -fexceptions)
 target_link_libraries (${PROJECT_NAME}_benchmark PRIVATE Threads::Threads)
 
 
-target_include_directories(${PROJECT_NAME}_benchmark SYSTEM PUBLIC "${CMAKE_SOURCE_DIR}/lib/benchpress/src")
-
 target_link_libraries(${PROJECT_NAME}_benchmark PUBLIC ${PROJECT_NAME})
+
+
+target_include_directories(${PROJECT_NAME}_benchmark SYSTEM PUBLIC "${CMAKE_SOURCE_DIR}/libs/benchpress/src")
 #target_link_libraries(${PROJECT_NAME}_benchmark PUBLIC benchpress) # header-only
 
 unset(src)

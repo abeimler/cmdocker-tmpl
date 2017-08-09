@@ -9,7 +9,14 @@ project(backend VERSION ${ver} LANGUAGES CXX)
 ## @NOTE: add_subdirectory libs here 
 ###
 
-## header-only @TODO did header-only libs need to add_subdirectory, EXCLUDE_FROM_ALL for 3rd-party ?
+##
+# pthread
+##
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads)
+
+
+## header-only @TODO did header-only libs need to add_subdirectory with EXCLUDE_FROM_ALL for 3rd-party ?
 add_subdirectory(libs/entt EXCLUDE_FROM_ALL)
 add_subdirectory(libs/eventpp EXCLUDE_FROM_ALL)
 

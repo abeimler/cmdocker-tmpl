@@ -21,14 +21,16 @@ target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}"
 
 # use SYSTEM to get rid of 3rd party libs warnings
 ### @NOTE: add libs here
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/lib/better-enums")
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/lib/better-enums/extra")
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/lib/cereal/include")
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/lib/clamp")
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/lib/json/src")
 
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/lib/entt/src")
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/lib/eventpp/src")
+## add include_directories from header-only libs
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/libs/better-enums")
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/libs/better-enums/extra")
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/libs/cereal/include")
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/libs/clamp")
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/libs/json/src")
+
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/libs/entt/src")
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/libs/eventpp/src")
 
 
 

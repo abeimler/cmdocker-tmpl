@@ -12,12 +12,10 @@ option(BUILD_BENCHMARKING "Build Benchmarks" OFF)
 ## (global) 3rd party libs for testing, benchmark, ...
 ###
 if(BUILD_TESTING)
-  ## heady-only
-  add_subdirectory(libs/doctest EXCLUDE_FROM_ALL)
+  add_subdirectory(libs/doctest)
 endif()
 if(BUILD_BENCHMARKING)
-  ## heady-only
-  add_subdirectory(libs/benchpress EXCLUDE_FROM_ALL)
+  add_subdirectory(libs/benchpress)
 endif()
 
 

@@ -13,16 +13,14 @@ target_compile_features(${PROJECT_NAME}_test_main PUBLIC cxx_constexpr
                                                 cxx_lambdas)
 
 
-target_include_directories(${PROJECT_NAME}_test_main PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(${PROJECT_NAME}_test_main PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
 
 target_compile_options(${PROJECT_NAME}_test_main PRIVATE -fexceptions)
-target_link_libraries (${PROJECT_NAME}_test_main PRIVATE ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries (${PROJECT_NAME}_test_main PUBLIC Threads::Threads)
 
-
-target_include_directories(${PROJECT_NAME}_test_main SYSTEM PUBLIC "${CMAKE_SOURCE_DIR}/lib/doctest/doctest")
 
 target_link_libraries(${PROJECT_NAME}_test_main PUBLIC ${PROJECT_NAME})
-#target_link_libraries(${PROJECT_NAME}_test_main PUBLIC doctest)
+target_link_libraries(${PROJECT_NAME}_test_main PUBLIC doctest)
  
 
 
@@ -44,18 +42,25 @@ foreach(src_file ${src})
     add_executable(${test_command} ${src_file})
     add_executable(${test_name} ALIAS ${test_command})
 
+    target_include_directories(${test_command} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+
     set_property(TARGET ${test_command} PROPERTY CXX_STANDARD 14)
     set_property(TARGET ${test_command} PROPERTY CXX_STANDARD_REQUIRED ON)
 
     target_link_libraries (${test_command} PRIVATE ${PROJECT_NAME}_test_main)
 
     target_compile_options(${test_command} PRIVATE -fexceptions)
-    target_link_libraries (${test_command} PRIVATE ${CMAKE_THREAD_LIBS_INIT})
+    target_link_libraries (${test_command} PRIVATE Threads::Threads)
 
-    add_test(NAME ${test_name} COMMAND ${test_command})
+    add_test(NAME "${test_name}" COMMAND ${test_command}
+             WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    #add_test(NAME ${test_name} COMMAND ${test_command} 
+    #         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    #         --config $<CONFIGURATION> --exe $<TARGET_FILE:${test_command}>)
 endforeach()
 
-
+unset(test_name)
+unset(test_command)
 
 
 unset(src)

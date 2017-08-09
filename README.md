@@ -72,7 +72,7 @@ thx at @purpleKarrot and @boostcon for [C++Now 2017](https://github.com/boostcon
 
  1. `mkdir -p ./build`
  2. `cmake -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DDOCTEST_WITH_TESTS:BOOL="0" -DSKIP_PORTABILITY_TEST:BOOL="1" -DTHREAD_SAFE:BOOL="1" -DJUST_INSTALL_CEREAL:BOOL="1" .`
-  3. `cmake --build ./build --target all --config Release -- -j2`
+ 3. `cmake --build ./build --target all --config Release -- -j2`
 
 
 
