@@ -2,7 +2,7 @@
 #include <thread>
 #include <chrono>
 
-#include "benchpress/benchpress.hpp"
+#include "benchpress.hpp"
 
 namespace test_benchmark {
 
@@ -14,6 +14,7 @@ BENCHMARK("example benchmark", [](benchpress::context* ctx) {
 	}
 })
 
+
 BENCHMARK("parallel example benchmark", [](benchpress::context* ctx) {
 	ctx->run_parallel([](benchpress::parallel_context* pctx) {
 		while (pctx->next()) {
@@ -21,7 +22,7 @@ BENCHMARK("parallel example benchmark", [](benchpress::context* ctx) {
             example += "Hello ";
             example += "World";
 		}
-	}
+	});
 })
 
 } // namespace test_benchmark

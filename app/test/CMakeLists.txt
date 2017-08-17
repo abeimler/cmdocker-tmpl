@@ -2,8 +2,6 @@ add_library(${PROJECT_NAME}_test_main STATIC ${CMAKE_CURRENT_SOURCE_DIR}/mainTes
 add_library(${PROJECT_NAME}.Test::Main ALIAS ${PROJECT_NAME}_test_main)
 
 
-set_property(TARGET ${PROJECT_NAME}_test_main PROPERTY CXX_STANDARD 14)
-set_property(TARGET ${PROJECT_NAME}_test_main PROPERTY CXX_STANDARD_REQUIRED ON)
 target_compile_features(${PROJECT_NAME}_test_main PUBLIC cxx_constexpr 
                                                 cxx_aggregate_default_initializers
                                                 cxx_auto_type 
@@ -13,8 +11,8 @@ target_compile_features(${PROJECT_NAME}_test_main PUBLIC cxx_constexpr
                                                 cxx_lambdas)
 
 
-target_compile_options(${PROJECT_NAME}_test_main PRIVATE -fexceptions)
-target_link_libraries (${PROJECT_NAME}_test_main PRIVATE Threads::Threads)
+target_compile_options(${PROJECT_NAME}_test_main PUBLIC -fexceptions)
+target_link_libraries (${PROJECT_NAME}_test_main PUBLIC Threads::Threads)
 
 target_link_libraries(${PROJECT_NAME}_test_main PUBLIC ${PROJECT_NAME}_src)
 target_link_libraries(${PROJECT_NAME}_test_main PUBLIC doctest)
@@ -45,9 +43,6 @@ foreach(src_file ${src})
     set_property(TARGET ${test_command} PROPERTY CXX_STANDARD_REQUIRED ON)
 
     target_link_libraries (${test_command} PRIVATE ${PROJECT_NAME}_test_main)
-
-    target_compile_options(${test_command} PRIVATE -fexceptions)
-    target_link_libraries (${test_command} PRIVATE Threads::Threads)
 
     add_test(NAME "${test_name}" COMMAND ${test_command}
              WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})

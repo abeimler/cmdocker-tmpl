@@ -6,8 +6,7 @@ list(REMOVE_ITEM src ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp) # already use it in a
 add_library(${PROJECT_NAME}_src STATIC ${src})
 add_library(${PROJECT_NAME}.Src ALIAS ${PROJECT_NAME}_src)
 
-set_property(TARGET ${PROJECT_NAME}_src PROPERTY CXX_STANDARD 14)
-set_property(TARGET ${PROJECT_NAME}_src PROPERTY CXX_STANDARD_REQUIRED ON)
+
 target_compile_features(${PROJECT_NAME}_src PUBLIC cxx_constexpr 
                                                 cxx_aggregate_default_initializers
                                                 cxx_auto_type 

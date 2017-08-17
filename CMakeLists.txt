@@ -15,7 +15,8 @@ if(BUILD_TESTING)
   add_subdirectory(libs/doctest)
 endif()
 if(BUILD_BENCHMARKING)
-  add_subdirectory(libs/benchpress)
+  ## header-only lib
+  #add_subdirectory(libs/benchpress)
 endif()
 
 

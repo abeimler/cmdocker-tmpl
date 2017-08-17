@@ -4,8 +4,6 @@ file(GLOB_RECURSE src ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp ${CMAKE_CURRENT_SOURCE_D
 add_library(${PROJECT_NAME} STATIC ${src})
 add_library(MyApp::Backend ALIAS ${PROJECT_NAME}) ### @TODO: change namespace
 
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_constexpr 
                                                 cxx_aggregate_default_initializers
                                                 cxx_auto_type 
@@ -19,7 +17,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}"
 #target_compile_options(${PROJECT_NAME} PRIVATE -fno-exceptions)
 
 
-# use SYSTEM to get rid of 3rd party libs warnings
+# use SYSTEM to get rid of 3rd-party libs warnings
 ### @NOTE: add libs here
 
 ## add include_directories from header-only libs
@@ -31,7 +29,6 @@ target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOUR
 
 target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/libs/entt/src")
 target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/libs/eventpp/src")
-
 
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${${PROJECT_NAME}_SOURCE_DIR}/include")

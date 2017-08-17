@@ -129,7 +129,7 @@ class registration {
 
 public:
     static registration* get_ptr() {
-        static std::unique_ptr<registration> d_this = std::make_unique<registration>();
+        static std::unique_ptr<registration> d_this = std::unique_ptr<registration>(new registration()); //std::make_unique<registration>();
         return d_this.get();
     }
 
@@ -482,7 +482,6 @@ private:
  * The run_benchmarks function will run the registered benchmarks.
  */
 void run_benchmarks(const options& opts) {
-    using namespace std::string_literals;
 
     auto std_replace = [](std::string& str,
                 const std::string& oldStr,
@@ -548,8 +547,8 @@ void run_benchmarks(const options& opts) {
             std::string col = result.get_col();
             std::string row = result.get_row();
             std::string result_str = std::to_string(result.get_ns_per_op());
-            result_str = (!result_str.empty())? result_str : "?"s;
-            result_str = (!col.empty() && !row.empty())? result_str : "?"s;
+            result_str = (!result_str.empty())? result_str : std::string("?");
+            result_str = (!col.empty() && !row.empty())? result_str : std::string("?");
 
 
             std::stringstream sort_col_ss;
