@@ -1,0 +1,170 @@
+version: '3'
+
+services:
+  build-arm-linux-gnueabihf:
+    build:
+      context: .
+      dockerfile: ./docker/arm-linux-gnueabihf/Dockerfile
+    container_name: build-arm-linux-gnueabihf
+    environment:
+      - BUILD_NAME=arm-linux-gnueabihf
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source:ro
+      - ./build:/binary:rw
+
+  build-clang-3.9:
+    build:
+      context: .
+      dockerfile: ./docker/clang-3.9/Dockerfile
+    container_name: build-clang-3.9
+    environment:
+      - BUILD_NAME=clang-3.9
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source:ro
+      - ./build:/binary:rw
+
+  build-clang-3.9-clazy:
+    build:
+      context: .
+      dockerfile: ./docker/clang-3.9-clazy/Dockerfile
+    container_name: build-clang-3.9-clazy
+    environment:
+      - BUILD_NAME=clang-3.9-clazy
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source:ro
+      - ./build:/binary:rw
+
+  build-clang-4.0:
+    build:
+      context: .
+      dockerfile: ./docker/clang-4.0/Dockerfile
+    container_name: build-clang-4.0
+    environment:
+      - BUILD_NAME=clang-4.0
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source:ro
+      - ./build:/binary:rw
+
+  build-clang-4.0-clazy:
+    build:
+      context: .
+      dockerfile: ./docker/clang-4.0-clazy/Dockerfile
+    container_name: build-clang-4.0-clazy
+    environment:
+      - BUILD_NAME=clang-4.0-clazy
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source:ro
+      - ./build:/binary:rw
+
+  build-clang-5.0:
+    build:
+      context: .
+      dockerfile: ./docker/clang-5.0/Dockerfile
+    container_name: build-clang-5.0
+    environment:
+      - BUILD_NAME=clang-5.0
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source:ro
+      - ./build:/binary:rw
+
+  build-gcc-5:
+    build:
+      context: .
+      dockerfile: ./docker/gcc-5/Dockerfile
+    container_name: build-gcc-5
+    environment:
+      - BUILD_NAME=gcc-5
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source:ro 
+      - ./build:/binary:rw
+
+  build-gcc-6:
+    build:
+      context: .
+      dockerfile: ./docker/gcc-6/Dockerfile
+    container_name: build-gcc-6
+    environment:
+      - BUILD_NAME=gcc-6
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source:ro
+      - ./build:/binary:rw
+
+  build-gcc-7:
+    build:
+      context: .
+      dockerfile: ./docker/gcc-7/Dockerfile
+    container_name: build-gcc-7
+    environment:
+      - BUILD_NAME=gcc-7
+      - BUILD_CONFIG=Release
+    volumes:
+      - .:/source:ro
+      - ./build:/binary:rw
+
+  # build-mingw-w64-i686:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/mingw-w64-i686/Dockerfile
+  #   container_name: build-mingw-w64-i686
+  #   environment:
+  #     - BUILD_NAME=mingw-w64-i686
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw
+
+  # build-mingw-w64-x86-64:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/mingw-w64-x86-64/Dockerfile
+  #   container_name: build-mingw-w64-x86-64
+  #   environment:
+  #     - BUILD_NAME=mingw-w64-x86-64
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw
+
+  # build-wine32-gcc:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/wine32-gcc/Dockerfile
+  #   container_name: build-wine32-gcc
+  #   environment:
+  #     - BUILD_NAME=wine32-gcc
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw
+
+  # build-wine64-gcc:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/wine64-gcc/Dockerfile
+  #   container_name: build-wine64-gcc
+  #   environment:
+  #     - BUILD_NAME=wine64-gcc
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw
+
+  # build-msvc-9.0:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/msvc-9.0/Dockerfile
+  #   container_name: build-msvc-9.0
+  #   environment:
+  #     - BUILD_NAME=msvc-9.0
+  #     - BUILD_CONFIG=Release
+  #   volumes:
+  #     - .:/source:ro
+  #     - ./build:/binary:rw
