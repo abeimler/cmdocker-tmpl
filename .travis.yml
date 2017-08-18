@@ -17,7 +17,7 @@ env:
   global:
     - DOCKER_COMPOSE_VERSION=1.13.0
   matrix:
-    ## comment out some CONTAINER_NAMEs to disables compiler-builds
+    ## comment out some CONTAINER_NAMEs to disable compiler-builds
     - CONTAINER_NAME=build-arm-linux-gnueabihf
     - CONTAINER_NAME=build-clang-3.9
     #- CONTAINER_NAME=build-clang-3.9-clazy
