@@ -2,7 +2,7 @@ add_library(${PROJECT_NAME}_test_main STATIC ${CMAKE_CURRENT_SOURCE_DIR}/mainTes
 add_library(${PROJECT_NAME}.Test::Main ALIAS ${PROJECT_NAME}_test_main)
 
 
-target_compile_features(${PROJECT_NAME}_test_main PUBLIC cxx_constexpr 
+target_compile_features(${PROJECT_NAME}_test_main PRIVATE cxx_constexpr 
                                                 cxx_aggregate_default_initializers
                                                 cxx_auto_type 
                                                 cxx_range_for 

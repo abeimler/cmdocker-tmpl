@@ -20,7 +20,7 @@ find_package(Threads)
 add_subdirectory(libs/entt EXCLUDE_FROM_ALL)
 add_subdirectory(libs/eventpp EXCLUDE_FROM_ALL)
 
-add_subdirectory(libs/json EXCLUDE_FROM_ALL)
+#add_subdirectory(libs/json EXCLUDE_FROM_ALL)
 add_subdirectory(libs/cereal EXCLUDE_FROM_ALL)
 
 

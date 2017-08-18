@@ -3,7 +3,7 @@ add_library(${PROJECT_NAME}_benchmark_main STATIC ${CMAKE_CURRENT_SOURCE_DIR}/ma
 add_library(${PROJECT_NAME}.Benchmark::Main ALIAS ${PROJECT_NAME}_benchmark_main)
 
 
-target_compile_features(${PROJECT_NAME}_benchmark_main PUBLIC cxx_auto_type 
+target_compile_features(${PROJECT_NAME}_benchmark_main PRIVATE cxx_auto_type 
                                                 cxx_range_for 
                                                 cxx_nullptr
                                                 cxx_lambdas 
@@ -27,15 +27,6 @@ list(REMOVE_ITEM src ${CMAKE_CURRENT_SOURCE_DIR}/mainBenchmark.cpp) # already us
 
 add_library(${PROJECT_NAME}_benchmark STATIC ${src})
 add_library(${PROJECT_NAME}.Benchmark ALIAS ${PROJECT_NAME}_benchmark)
-
-set_property(TARGET ${PROJECT_NAME}_benchmark PROPERTY CXX_STANDARD 14)
-set_property(TARGET ${PROJECT_NAME}_benchmark PROPERTY CXX_STANDARD_REQUIRED ON)
-target_compile_features(${PROJECT_NAME}_benchmark PUBLIC cxx_auto_type 
-                                                cxx_range_for 
-                                                cxx_nullptr
-                                                cxx_lambdas 
-                                                cxx_raw_string_literals cxx_user_literals)
-
 
 target_include_directories(${PROJECT_NAME}_benchmark PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 

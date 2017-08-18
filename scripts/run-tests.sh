@@ -1,8 +1,8 @@
 #!/bin/bash
 
-## alt.
-cd $BUILD_PATH && ctest -j2 -C $BUILD_CONFIG -T test --output-on-failure
+echo "run tests ...";
 
-### @NOTE: ctest
-#cd /
-#ctest -S $SOURCE_PATH/build.cmake
+cd $BUILD_PATH && ctest -C $BUILD_CONFIG -T test --output-on-failure -j2
+
+### alt.
+#cd $BUILD_PATH && ctest -S $SOURCE_PATH/build.cmake

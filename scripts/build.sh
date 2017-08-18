@@ -1,8 +1,11 @@
 #!/bin/bash
 
+cd $BUILD_PATH
 
 ### cmake clean
-if [ "$CLEAN_BUILD" = "1" ]; then cmake --build $BUILD_PATH --target clean --config $BUILD_CONFIG; fi
+if [ "$CLEAN_BUILD" = "1" ]; then echo "clean build ..."; fi
+if [ "$CLEAN_BUILD" = "1" ]; then cmake --build $BUILD_PATH --config $BUILD_CONFIG --target clean; fi
 
 ### cmake build
-cmake --build $BUILD_PATH --target all --config $BUILD_CONFIG -- -j2
+echo "build ...";
+cmake --build $BUILD_PATH --config $BUILD_CONFIG --target all -- -j2

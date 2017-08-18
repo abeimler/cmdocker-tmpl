@@ -4,6 +4,10 @@ file(GLOB_RECURSE src ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp ${CMAKE_CURRENT_SOURCE_D
 add_library(${PROJECT_NAME} STATIC ${src})
 add_library(MyApp::Backend ALIAS ${PROJECT_NAME}) ### @TODO: change namespace
 
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)  
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
+
+# alt. target_compile_features, use  target_compile_features or set_property with CXX_STANDARD to set the c++ standard
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_constexpr 
                                                 cxx_aggregate_default_initializers
                                                 cxx_auto_type 
@@ -11,6 +15,7 @@ target_compile_features(${PROJECT_NAME} PUBLIC cxx_constexpr
                                                 cxx_decltype_auto 
                                                 cxx_nullptr
                                                 cxx_lambdas)
+
 
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
 
